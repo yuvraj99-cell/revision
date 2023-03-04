@@ -1,8 +1,10 @@
 import React from "react";
-
-const Video = ({ title, channel, views, time, valid, id, children }) => {
+import './Video.css';
+const Video = ({ title, channel, views, time, valid, id, children,deleteVideo,editVideo }) => {
   return (
-    <>
+    <div className="container">
+    <button onClick={()=>deleteVideo(id)} className="close">X</button>
+    <button onClick={()=>editVideo(id)} className="edit">edit</button>
       <div
         className="card"
         style={{
@@ -14,6 +16,7 @@ const Video = ({ title, channel, views, time, valid, id, children }) => {
           margin: "2px",
         }}
       >
+        
         <img src={`https://picsum.photos/id/${id}/200/300`} alt="" />
         <div className="title" style={{ fontWeight: "bold", fontSize: "25px" }}>
           {title}
@@ -22,7 +25,7 @@ const Video = ({ title, channel, views, time, valid, id, children }) => {
         {valid && <div>i am valid</div>}
         <div>{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
