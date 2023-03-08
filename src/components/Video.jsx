@@ -1,9 +1,12 @@
-import React from "react";
+
+import useVideoDispatch from "../hooks/VideoDispatch";
+
 import './Video.css';
-const Video = ({ title, channel, views, time, valid, id, children,deleteVideo,editVideo }) => {
+const Video = ({ title, channel, views, time, valid, id, children,editVideo }) => {
+  const dispatch= useVideoDispatch();
   return (
     <div className="container">
-    <button onClick={()=>deleteVideo(id)} className="close">X</button>
+    <button onClick={()=>dispatch({type:'DELETE',payload:id})} className="close">X</button>
     <button onClick={()=>editVideo(id)} className="edit">edit</button>
       <div
         className="card"

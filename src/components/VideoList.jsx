@@ -1,8 +1,10 @@
-import React from 'react'
+
+import useVideos from '../hooks/Video'
 import PlayButton from './PlayButton'
 import Video from './Video'
 
-const VideoList = ({videos,deleteVideo,editVideo}) => {
+const VideoList = ({editVideo}) => {
+  const videos=useVideos();
   return (
     <div>
          <div style={{border:"2px solid grey"}}>
@@ -17,7 +19,6 @@ const VideoList = ({videos,deleteVideo,editVideo}) => {
     time={videos.time}
     channel={videos.channel}
     id={videos.id}
-    deleteVideo={deleteVideo}
     editVideo={editVideo}
   ><PlayButton onPlay={()=>console.log("playing",videos.title)} onPause={()=>console.log("paused",videos.title)} >play</PlayButton></Video>)}
  
