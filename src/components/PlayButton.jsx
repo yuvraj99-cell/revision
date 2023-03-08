@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
-const PlayButton = ({msg, children,onPlay,onPause}) => {
-  console.log('Reandering counter'); 
+ const PlayButton = memo (function PlayButton({msg, children,onPlay,onPause})  {
+  console.log('Reandering button'); 
   const[ playing , setPlaying]=useState(false);   // dont use this approch
   function handleClick(){
   if(playing) onPause()
@@ -13,7 +13,7 @@ const PlayButton = ({msg, children,onPlay,onPause}) => {
         <button onClick={handleClick} >{children}:{playing ? '⏯️':'pause'}</button>
     </div>
   )
-}
+})
 
 export default PlayButton;
 

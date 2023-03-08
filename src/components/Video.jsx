@@ -1,9 +1,29 @@
 
+import { useEffect } from "react";
 import useVideoDispatch from "../hooks/VideoDispatch";
 
 import './Video.css';
 const Video = ({ title, channel, views, time, valid, id, children,editVideo }) => {
   const dispatch= useVideoDispatch();
+
+
+
+  // useEffect(()=>{
+
+  // const idx=  setInterval(()=>{
+  //     console.log("video Playing",id)
+  //   },3000)
+  //   return()=>{
+  //     clearInterval(idx);
+  //   }
+   
+  // },[id])
+
+
+
+
+
+
   return (
     <div className="container">
     <button onClick={()=>dispatch({type:'DELETE',payload:id})} className="close">X</button>
@@ -24,7 +44,7 @@ const Video = ({ title, channel, views, time, valid, id, children,editVideo }) =
         <div className="title" style={{ fontWeight: "bold", fontSize: "25px" }}>
           {title}
         </div>
-        {views} views <span>.</span> {time}
+        {views} views <span></span> {time}
         {valid && <div>i am valid</div>}
         <div>{children}</div>
       </div>

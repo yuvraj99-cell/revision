@@ -14,6 +14,10 @@ const App = () => {
     switch (action.type) {
       case "ADD":
         return [...videos, { ...action.payload, id: videos.length + 1 }];
+        
+      case "LOAD":
+        return action.payload;
+
       case "DELETE":
         return videos.filter((video) => video.id !== action.payload);
       case "UPDATE":
@@ -27,7 +31,7 @@ const App = () => {
     }
   }
 
-  const [videos, dispatch] = useReducer(videoReducer, data);
+  const [videos, dispatch] = useReducer(videoReducer, []);
 
   //const [videos, setVideos]=useState(data);
 
